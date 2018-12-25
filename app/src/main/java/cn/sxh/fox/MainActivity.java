@@ -1,8 +1,13 @@
 package cn.sxh.fox;
 
+import android.content.Context;
 import android.content.Intent;
+import android.inputmethodservice.Keyboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import cn.sxh.fox.view.MainActivityView;
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,9 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        USerManager.sUserId = 2;
-        android.util.Log.e("sxh", "MainActivity------------->" + USerManager.sUserId);
-        startActivity(new Intent(this,SecondActivity.class));
     }
 
     private void initView() {
