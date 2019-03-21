@@ -1,6 +1,6 @@
-package cn.sxh.fox.aidl;
+package cn.sxh.fox;
 
-import android.os.IBinder;
+import android.os.RemoteException;
 
 /**
  * @package-name: cn.sxh.fox.aidl
@@ -10,20 +10,20 @@ import android.os.IBinder;
  * @project-name: fox
  */
 
-public class SecurityCenterIpml implements ISecurityCenter {
+public class SecurityCenterIpml extends ISecurityCenter.Stub {
+
+    private static final char SECRET_COCE = '^';
     @Override
-    public String encrypt(String content) {
-        return null;
+    public String encrypt(String content) throws RemoteException{
+        char[] chars = content.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] ^= SECRET_COCE;
+        }
+        return new String(chars);
     }
 
     @Override
-    public String decrypt(String password) {
-        return null;
+    public String decrypt(String password) throws RemoteException{
+        return encrypt(password);
     }
-
-    @Override
-    public IBinder asBinder() {
-        return null;
-    }
-
 }

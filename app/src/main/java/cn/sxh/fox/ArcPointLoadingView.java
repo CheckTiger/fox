@@ -29,7 +29,7 @@ public class ArcPointLoadingView extends View {
 
     private int mStartAngle = 30;
     private int mDistanceAngle = 0;
-    private int mRadius = 150;
+    private int mRadius = 50;
 
     private int mCircleRadius = 25;
     private int mCircleDistance = 50;

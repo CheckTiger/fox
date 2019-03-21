@@ -1,6 +1,6 @@
-package cn.sxh.fox.aidl;
+package cn.sxh.fox;
 
-import android.os.IBinder;
+import android.os.RemoteException;
 
 /**
  * @package-name: cn.sxh.fox.aidl
@@ -10,14 +10,9 @@ import android.os.IBinder;
  * @project-name: fox
  */
 
-public class ComputeIpml implements ICompute {
+public class ComputeIpml extends ICompute.Stub {
     @Override
-    public int add(int a, int b) {
-        return 0;
-    }
-
-    @Override
-    public IBinder asBinder() {
-        return null;
+    public int add(int a, int b)throws RemoteException {
+        return a + b;
     }
 }
